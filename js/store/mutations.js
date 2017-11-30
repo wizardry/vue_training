@@ -23,8 +23,9 @@ export const mutations = {
     item.done = !item.done
   },
 
-  editItem (state, { item, value }) {
-    item.text = value
+  editItem (state, { item, values }) {
+    item.element = values.element
+    item.rarity = values.rarity
   },
 
   clearCompleted (state) {

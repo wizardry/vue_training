@@ -11,15 +11,81 @@ $theme_em: #434747;
 header {
   background: #333;
   color: $theme_color;
-  border-bottom: 1px solid $theme_lighten;
-  height: 60px;
+  border-bottom: 1px solid #660034;
+  height: 45px;
+  line-height: 45px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 5px 5px 0 $theme_under;
   text-align: center;
 }
 
 .mainContent {
   background: $theme_darken;
-}
+  .requiredMaterial {
+    background: #000;
+    color: $theme_darken;
+    overflow-y: auto;
+    max-height:120px;
 
+    li {
+      border-bottom: 1px dashed $theme_light;
+    }
+
+    dl {
+      display: block;
+      position: relative;
+      padding: 5px 10px ;
+      overflow: hidden;
+    }
+    dt {
+      float: left;
+    }
+    dd {
+      float: right;
+    }
+  }
+
+  form {
+    padding: 5px;
+    font-size: 14px;
+    background: #FFF;
+    dl {
+      overflow: hidden;
+    }
+    dt,dd {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    dd {
+      margin-right: 12px;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 8px;
+      border-color: $theme_base;
+      background: $theme_light;
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      text-align: center;
+    }
+
+
+    &.addForm {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid #660034;
+    }
+  }
+}
+.limitBreakList {
+  background: $theme_light;
+  padding-bottom: 160px;
+}
 footer {
   background: #343737;
   color: $theme_lighten;
@@ -31,134 +97,58 @@ footer {
   text-align: right;
   box-sizing: border-box;
   padding: 0 20px;
+  font-size: 10px;
 }
 </style>
 <template>
   <section class="materialCalcApp">
     <!-- header -->
     <header>
-      <p>shinoalice material calc</p>
+      <p>SINoALICE 必要素材メモ帳</p>
     </header>
     <div class="appWrapper">
       <div class="mainContent">
         <div class="requiredMaterial">
           <ul>
-            <li>
+            <li v-for="material in materialCalcs.materials">
               <dl>
-                <dt>竜の爪（火）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の爪（水）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の爪（風）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の鱗（火）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の鱗（水）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の鱗（風）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の瞳（火）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の瞳（水）</dt>
-                <dd>15個</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>竜の瞳（風）</dt>
-                <dd>15個</dd>
+                <dt>{{material | materialName}}</dt>
+                <dd>{{material.count}}個</dd>
               </dl>
             </li>
           </ul>
           <dl>
             <dt>お金</dt>
-            <dd>200,000G</dd>
+            <dd>{{materialCalcs.gold | renderGold}}G</dd>
           </dl>
         </div>
-      </div>
-      <div class="limitBreakList">
-        <form
-          @submit.prevent="addItem">
-          <dl>
-            <dt>属性</dt>
-            <dd>
-              <select name="element" id="">
-                <option value="none">選択してください</option>
-                <option v-for="element in elements" :value="element.id">{{element.name}}</option>
-              </select>
-            </dd>
-            <dt>レアリティ</dt>
-            <dd>
-              <select name="rarity" id="">
-                <option value="none">選択してください</option>
-                <option v-for="rarity in rarities" :value="rarity">{{rarity}}</option>
-              </select>
-            </dd>
-          </dl>
-          <button type="submit">登録</button>
-        </form>
-
-        <ul>
-          <li v-for="(item, index) in items" :class="{ editing: editing }">
+        <div class="limitBreakList">
+          <form
+            class="addForm"
+            @submit.prevent="addItem">
             <dl>
               <dt>属性</dt>
-              <dd>{{ item | elementName }}</dd>
+              <dd>
+                <select name="element" id="">
+                  <option value="none"></option>
+                  <option v-for="element in elements" v-if="element.id !== 99" :value="element.id">{{element.name}}</option>
+                </select>
+              </dd>
+              <dt>レアリティ</dt>
+              <dd>
+                <select name="rarity" id="">
+                  <option value="none"></option>
+                  <option v-for="rarity in rarities" v-if="rarity !== 'L'" :value="rarity">{{rarity}}</option>
+                </select>
+              </dd>
             </dl>
-            <dl>
-              <dt>現在のレアリティ</dt>
-              <dd>{{ item.rarity }}</dd>
-            </dl>
-            <button @dblclick="editing = true">編集</button>
-            <button @click="deleteItem({ item: item })">削除</button>
-            <form
-              v-show="true"
-              v-focus="editing"
-              @submit.prevent="doneEdit">
-              <dl>
-                <dt>属性</dt>
-                <dd>
-                  <select name="" id="">
-                    <option v-for="element in elements" :value="element.id">{{element.name}}</option>
-                  </select>
-                </dd>
-                <dt>レアリティ</dt>
-                <dd>
-                  <select name="" id="">
-                    <option v-for="rarity in rarities" :value="rarity">{{rarity}}</option>
-                  </select>
-                </dd>
-              </dl>
-            </form>
-          </li>
-        </ul>
+            <button type="submit">登録</button>
+          </form>
+
+          <ul>
+            <item v-for="(item, index) in items" :key="index" :item="item"></item>
+          </ul>
+        </div>
       </div>
     </div>
     <footer>developper by wiz_rein</footer>
@@ -167,56 +157,13 @@ footer {
 
 <script>
 import { mapMutations } from 'vuex'
-
-const elements = [
-  {name: '火属性', id: 0},
-  {name: '水属性', id: 1},
-  {name: '風属性', id: 2},
-  {name: '共通', id: 99}
-]
-
-const rarities = ['A', 'S', 'SS', 'L']
-
-const materials = [
-  {name:'竜の爪（火）', rank: 0, element: 0, type: 'weapon'},
-  {name:'竜の爪（水）', rank: 0, element: 1, type: 'weapon'},
-  {name:'竜の爪（風）', rank: 0, element: 2, type: 'weapon'},
-  {name:'竜の鱗（火）', rank: 1, element: 0, type: 'weapon'},
-  {name:'竜の鱗（水）', rank: 1, element: 1, type: 'weapon'},
-  {name:'竜の鱗（風）', rank: 1, element: 2, type: 'weapon'},
-  {name:'竜の瞳（火）', rank: 2, element: 0, type: 'weapon'},
-  {name:'竜の瞳（水）', rank: 2, element: 1, type: 'weapon'},
-  {name:'竜の瞳（風）', rank: 2, element: 2, type: 'weapon'},
-  {name:'竜の枷', rank: 3, element: 99, type: 'weapon'},
-]
-
-const reqrueiedMaterials = {
-  'A': {
-    rank_0: 15,
-    rank_1: 5,
-    rank_2: 1,
-    gold: 25000
-  },
-  'S': {
-    rank_0: 45,
-    rank_1: 20,
-    rank_2: 5,
-    gold: 70000
-  },
-  'SS': {
-    rank_0: 0,
-    rank_1: 40,
-    rank_2: 15,
-    rank_99: 5,
-    gold: 200000
-  }
-}
+import Item from './Item.vue'
+import {elements, rarities, materials, reqrueiedMaterials} from '../store/const.js'
 
 export default {
-  components: { },
+  components: { Item },
   data () {
     return {
-      editing: false,
       elements: elements,
       rarities: rarities,
       materials: materials,
@@ -240,6 +187,49 @@ export default {
       return this.items.map(item =>{
         return {hoge: 'fuga'}
       });
+    },
+    materialCalcs() {
+      /**
+      * return {materials:[{material_id:0, count:30},{material_id:1, count:30}...], gold: 100}
+      */
+
+      let materialData = [];
+      let gold = 0;
+
+      // reqrueiedMaterials   'A': { rank_0: 15, rank_1: 5, rank_2: 1, gold: 25000},
+      // materials ex {id: 0, name:'竜の爪（火）', rank: 0, element: 0, type: 'weapon'},
+      // item {element: 1, rarity:'A'}
+
+      this.items && this.items.forEach( (item, index) => {
+        let require_count = reqrueiedMaterials[item.rarity];
+        // rank=0~3 各属性素材 / rank = 99 全属性共通素材
+        [
+          materials.find( (i) =>  i.rank == 0 && i.element == item.element && i.type == 'weapon'),
+          materials.find( (i) =>  i.rank == 1 && i.element == item.element && i.type == 'weapon'),
+          materials.find( (i) =>  i.rank == 2 && i.element == item.element && i.type == 'weapon'),
+          materials.find( (i) =>  i.rank == 99 && i.type == 'weapon')
+        ].forEach( (_mat, index) => {
+          if(_mat.rank ==99) {console.log(_mat, require_count)}
+          if (_mat == undefined) { return; }
+
+          let target = materialData.find( m => m.material_id == _mat.id );
+
+          if (require_count['rank_' + _mat.rank] != undefined) {
+            if(target == undefined) {
+              materialData.push({material_id: _mat.id, count: require_count['rank_' + _mat.rank]})
+            } else {
+              target.count += require_count['rank_' + _mat.rank]
+            }
+          }
+
+          gold += require_count.gold
+        });
+      });
+
+      return {
+        materials: materialData,
+        gold: gold
+      }
     }
   },
   methods: {
@@ -255,39 +245,45 @@ export default {
       formdata.element.selectedIndex = 0;
       formdata.rarity.selectedIndex = 0;
     },
-    doneEdit (e) {
-      const value = e.target.value.trim()
-      const { item } = this
-      if (!value) {
-        this.deleteItem({
-          item
-        })
-      } else if (this.editing) {
-        this.editItem({
-          item,
-          value
-        })
-        this.editing = false
-      }
-    },
-    cancelEdit (e) {
-      e.target.value = this.item.text
-      this.editing = false
-    },
     ...mapMutations([
-      'clearCompleted',
       'editItem',
-      'toggleItem',
       'deleteItem'
     ])
   },
   filters: {
-    elementName ( item ) {
+    elementName:( item ) => {
       const element = elements.filter( i => i.id == item.element)
-      return element[0].name
+
+      if( element != undefined ){
+        return  element[0].name
+      }else{
+        return 'undefined'
+      }
     },
-    materialCalcs {
-      
+    materialName: (data) => {
+      const material = materials.find( (i) => i.id == data.material_id)
+
+      if( material != undefined ){
+        return  material.name
+      }else{
+        return 'undedined'
+      }
+    },
+    materialCount: (data) => {
+      const material = materials.find( (i) => i.id == data.material_id)
+      console.log(
+        data,
+        materials,
+        material,
+      )
+      if( material != undefined ){
+        return material.count
+      }else{
+        return 'undedined'
+      }
+    },
+    renderGold: (gold) => {
+      return gold.toLocaleString().replace(/\.*/, '');
     }
   }
 }

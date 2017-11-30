@@ -53,60 +53,6 @@ table {
   border-spacing: 0;
 }
 
-.shukatsuManagePage .appWrapper {
-  *zoom: 1;
-}
-.shukatsuManagePage .appWrapper:after {
-  content: " ";
-  display: block;
-  height: 0;
-  visibility: hidden;
-  clear: both;
-  overflow: hidden;
-  font-size: 0.1em;
-  line-height: 0;
-}
-
-html {
-  height: 100%;
-}
-
 body {
-  background: #d9d9d9;
-  color: #333;
-  height: 100%;
+  background: #eee;
 }
-
-.shukatsuManagePage .appWrapper {
-  height: 100%;
-}
-.shukatsuManagePage .mainContent {
-  float: left;
-  width: 80%;
-  height: 100%;
-  overflow: scroll;
-  box-sizing: border-box;
-}
-.shukatsuManagePage .mainContent > ul {
-  width: 100%;
-}
-.shukatsuManagePage .mainContent > ul > li header > ul {
-  display: table;
-  width: 100%;
-}
-.shukatsuManagePage .mainContent > ul > li header li {
-  display: table-cell;
-  padding: 8px;
-  border-bottom: 1px solid #999;
-}
-.shukatsuManagePage .mainContent .taskContent {
-  border-top: 1px solid #666;
-  display: none;
-}
-.shukatsuManagePage .mainContent .taskContent.current {
-  display: block;
-}
-
-
-
-/*# sourceMappingURL=map/default.css.map */

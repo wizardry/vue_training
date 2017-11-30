@@ -1,11 +1,11 @@
 /**
  * Mocking client-server processing
  */
-const _companies = [{}]
+const _item = [{}]
 
 export const CompanyTaskAPI {
   get (cb) {
-    setTimeout(() => cb(_companies), 100)
+    setTimeout(() => cb(_item), 100)
   },
 
   add (products, cb, errorCb) {
