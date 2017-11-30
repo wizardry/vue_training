@@ -2,8 +2,8 @@ import { STORAGE_KEY } from './mutations'
 import createLogger from '../common/plugins/logger'
 
 const localStoragePlugin = store => {
-  store.subscribe((mutation, { todos }) => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+  store.subscribe((mutation, { items }) => {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
   })
 }
 

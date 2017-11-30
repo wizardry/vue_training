@@ -1,142 +1,294 @@
 <style lang="scss" scoped>
-section {
-  font-size:12px;
+$theme_lighten: #fdfdfd;
+$theme_light: #eee;
+$theme_base: #949493;
+$theme_dark: #6d6f68;
+$theme_darken: #bebebe;
+$theme_under: #ccc;
+$theme_color: #776f6f;
+$theme_em: #434747;
+
+header {
+  background: #333;
+  color: $theme_color;
+  border-bottom: 1px solid $theme_lighten;
+  height: 60px;
+  text-align: center;
+}
+
+.mainContent {
+  background: $theme_darken;
+}
+
+footer {
+  background: #343737;
+  color: $theme_lighten;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 </style>
-  
 <template>
-  <section class="todoapp">
+  <section class="materialCalcApp">
     <!-- header -->
-    <appHeader></appHeader>
+    <header>
+      <p>shinoalice material calc</p>
+    </header>
     <div class="appWrapper">
-      <appNavigation></appNavigation>
-
       <div class="mainContent">
-        <mediaForm></mediaForm>
+        <div class="requiredMaterial">
+          <ul>
+            <li>
+              <dl>
+                <dt>竜の爪（火）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の爪（水）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の爪（風）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の鱗（火）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の鱗（水）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の鱗（風）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の瞳（火）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の瞳（水）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>竜の瞳（風）</dt>
+                <dd>15個</dd>
+              </dl>
+            </li>
+          </ul>
+          <dl>
+            <dt>お金</dt>
+            <dd>200,000G</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="limitBreakList">
+        <form
+          @submit.prevent="addItem">
+          <dl>
+            <dt>属性</dt>
+            <dd>
+              <select name="element" id="">
+                <option value="none">選択してください</option>
+                <option v-for="element in elements" :value="element.id">{{element.name}}</option>
+              </select>
+            </dd>
+            <dt>レアリティ</dt>
+            <dd>
+              <select name="rarity" id="">
+                <option value="none">選択してください</option>
+                <option v-for="rarity in rarities" :value="rarity">{{rarity}}</option>
+              </select>
+            </dd>
+          </dl>
+          <button type="submit">登録</button>
+        </form>
+
         <ul>
-          <mediaTodo v-for="(media_todo, index) in media_todos" :key="index" :media_todo="media_todo"></mediaTodo>
+          <li v-for="(item, index) in items" :class="{ editing: editing }">
+            <dl>
+              <dt>属性</dt>
+              <dd>{{ item | elementName }}</dd>
+            </dl>
+            <dl>
+              <dt>現在のレアリティ</dt>
+              <dd>{{ item.rarity }}</dd>
+            </dl>
+            <button @dblclick="editing = true">編集</button>
+            <button @click="deleteItem({ item: item })">削除</button>
+            <form
+              v-show="true"
+              v-focus="editing"
+              @submit.prevent="doneEdit">
+              <dl>
+                <dt>属性</dt>
+                <dd>
+                  <select name="" id="">
+                    <option v-for="element in elements" :value="element.id">{{element.name}}</option>
+                  </select>
+                </dd>
+                <dt>レアリティ</dt>
+                <dd>
+                  <select name="" id="">
+                    <option v-for="rarity in rarities" :value="rarity">{{rarity}}</option>
+                  </select>
+                </dd>
+              </dl>
+            </form>
+          </li>
         </ul>
       </div>
     </div>
-    <!-- main section -->
-<!--
-    <section class="main" v-show="todos.length">
-      <input class="toggle-all" id="toggle-all"
-        type="checkbox"
-        :checked="allChecked"
-        @change="toggleAll({ done: !allChecked })">
-      <label for="toggle-all"></label>
-      <ul class="todo-list">
-        <todo v-for="(todo, index) in filteredTodos" :key="index" :todo="todo"></todo>
-      </ul>
-    </section>
--->
-    <!-- footer -->
-    <footer class="footer" v-show="todos.length">
-      <span class="todo-count">
-        <strong>{{ remaining }}</strong>
-        {{ remaining | pluralize('item') }} left
-      </span>
-      <ul class="filters" :if="$route.hash == '#Media'" >
-        <li v-for="(val, key) in filters">
-          <a :href="'#/' + key"
-            :class="{ selected: visibility === key }"
-            @click="visibility = key">{{ key | capitalize }}</a>
-        </li>
-      </ul>
-      <button class="clear-completed"
-        v-show="todos.length > remaining"
-        @click="clearCompleted">
-        Clear completed
-      </button>
-    </footer>
+    <footer>developper by wiz_rein</footer>
   </section>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-import AppHeader from './AppHeader.vue'
-import AppNavigation from './AppNavigation.vue'
-import MediaTodo from './MediaTodo.vue'
-import MediaForm from './MediaForm.vue'
-import CompanyTodo from './CompanyTodo.vue'
-import CompanyForm from './CompanyForm.vue'
 
-const filters = {
-  all: todos => todos,
-  active: todos => todos.filter(todo => !todo.done),
-  completed: todos => todos.filter(todo => todo.done)
-}
+const elements = [
+  {name: '火属性', id: 0},
+  {name: '水属性', id: 1},
+  {name: '風属性', id: 2},
+  {name: '共通', id: 99}
+]
 
-const menus = {
-  all: menus => menus,
-  current: menus => menus.filter(menu => menu.is_current)
+const rarities = ['A', 'S', 'SS', 'L']
+
+const materials = [
+  {name:'竜の爪（火）', rank: 0, element: 0, type: 'weapon'},
+  {name:'竜の爪（水）', rank: 0, element: 1, type: 'weapon'},
+  {name:'竜の爪（風）', rank: 0, element: 2, type: 'weapon'},
+  {name:'竜の鱗（火）', rank: 1, element: 0, type: 'weapon'},
+  {name:'竜の鱗（水）', rank: 1, element: 1, type: 'weapon'},
+  {name:'竜の鱗（風）', rank: 1, element: 2, type: 'weapon'},
+  {name:'竜の瞳（火）', rank: 2, element: 0, type: 'weapon'},
+  {name:'竜の瞳（水）', rank: 2, element: 1, type: 'weapon'},
+  {name:'竜の瞳（風）', rank: 2, element: 2, type: 'weapon'},
+  {name:'竜の枷', rank: 3, element: 99, type: 'weapon'},
+]
+
+const reqrueiedMaterials = {
+  'A': {
+    rank_0: 15,
+    rank_1: 5,
+    rank_2: 1,
+    gold: 25000
+  },
+  'S': {
+    rank_0: 45,
+    rank_1: 20,
+    rank_2: 5,
+    gold: 70000
+  },
+  'SS': {
+    rank_0: 0,
+    rank_1: 40,
+    rank_2: 15,
+    rank_99: 5,
+    gold: 200000
+  }
 }
 
 export default {
-  components: { AppHeader, AppNavigation, MediaTodo, MediaForm, CompanyTodo, CompanyForm },
+  components: { },
   data () {
     return {
-      visibility: 'all',
-      filters: filters,
-      page: menus
+      editing: false,
+      elements: elements,
+      rarities: rarities,
+      materials: materials,
+      reqrueiedMaterials: reqrueiedMaterials
     }
   },
-  watch: {
-    '$route'(to, from) {
-      console.log(to,from,this.$store.state.menus)
-      this.$store.state.menus.every(menu => {
-        if(menu.hash == to.hash) {
-          menu.is_current = true;
-        }else{
-          menu.is_current = false;
-        }
-      })
+  directives: {
+    focus (el, { value }, { context }) {
+      if (value) {
+        context.$nextTick(() => {
+          el.focus()
+        })
+      }
     }
   },
   computed: {
-    menuSlectHandler () {
-      console.log()
-      debugger
-      return this.$store.state.menus
+    items () {
+      return this.$store.state.items
     },
-    media_todos () {
-      console.log(this.$store.state.media_todos.length)
-      return this.$store.state.media_todos
-    },
-    company_todos () {
-      console.log(this.$store.state.company_todos.length)
-      return this.$store.state.company_todos
-    },
-    todos () {
-      return this.$store.state.todos
-    },
-    allChecked () {
-      return this.todos.every(todo => todo.done)
-    },
-    filteredTodos () {
-      return filters[this.visibility](this.todos)
-    },
-    remaining () {
-      return this.todos.filter(todo => !todo.done).length
+    total () {
+      return this.items.map(item =>{
+        return {hoge: 'fuga'}
+      });
     }
   },
   methods: {
-    addTodo (e) {
-      var text = e.target.value
-      if (text.trim()) {
-        this.$store.commit('addTodo', { text })
+    addItem (e) {
+      const formdata = e.target.elements
+      console.log(parseInt(formdata.element.value),formdata.rarity.value)
+      this.$store.commit({
+        type: 'addItem',
+        element: parseInt(formdata.element.value),
+        rarity: formdata.rarity.value,
+      });
+
+      formdata.element.selectedIndex = 0;
+      formdata.rarity.selectedIndex = 0;
+    },
+    doneEdit (e) {
+      const value = e.target.value.trim()
+      const { item } = this
+      if (!value) {
+        this.deleteItem({
+          item
+        })
+      } else if (this.editing) {
+        this.editItem({
+          item,
+          value
+        })
+        this.editing = false
       }
-      e.target.value = ''
+    },
+    cancelEdit (e) {
+      e.target.value = this.item.text
+      this.editing = false
     },
     ...mapMutations([
-      'toggleAll',
-      'clearCompleted'
+      'clearCompleted',
+      'editItem',
+      'toggleItem',
+      'deleteItem'
     ])
   },
   filters: {
-    pluralize: (n, w) => n === 1 ? w : (w + 's'),
-    capitalize: s => s.charAt(0).toUpperCase() + s.slice(1)
+    elementName ( item ) {
+      const element = elements.filter( i => i.id == item.element)
+      return element[0].name
+    },
+    materialCalcs {
+      
+    }
   }
 }
 </script>
