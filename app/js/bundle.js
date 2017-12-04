@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b342e030a73afe517686"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "695241e61ceff79e8ac0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -20337,9 +20337,6 @@ exports.default = {
         }), _const.materials.find(function (i) {
           return i.rank == 99 && i.type == 'weapon';
         })].forEach(function (_mat, index) {
-          if (_mat.rank == 99) {
-            console.log(_mat, require_count);
-          }
           if (_mat == undefined) {
             return;
           }
@@ -20355,9 +20352,10 @@ exports.default = {
               target.count += require_count['rank_' + _mat.rank];
             }
           }
-
-          gold += require_count.gold;
         });
+
+        console.log(gold, require_count, require_count.gold);
+        gold += require_count.gold;
       });
 
       return {

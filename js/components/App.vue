@@ -268,7 +268,6 @@ export default {
           materials.find( (i) =>  i.rank == 2 && i.element == item.element && i.type == 'weapon'),
           materials.find( (i) =>  i.rank == 99 && i.type == 'weapon')
         ].forEach( (_mat, index) => {
-          if(_mat.rank ==99) {console.log(_mat, require_count)}
           if (_mat == undefined) { return; }
 
           let target = materialData.find( m => m.material_id == _mat.id );
@@ -280,9 +279,10 @@ export default {
               target.count += require_count['rank_' + _mat.rank]
             }
           }
-
-          gold += require_count.gold
         });
+
+        console.log(gold,require_count,require_count.gold)
+        gold += require_count.gold
       });
 
       return {
