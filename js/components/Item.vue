@@ -178,6 +178,15 @@ export default {
           item
         })
       } else if (this.editing) {
+        if(formdata.element.value == 'none' || rarity == 'none') {
+          this.$store.commit('toggleMessage');
+          const self = this;
+          setTimeout(()=>{
+            self.$store.commit('toggleMessage');
+          }, 2000);
+
+          return false;
+        }
         this.editItem({
           item,
           values: {element: element, rarity: rarity}

@@ -7,6 +7,7 @@ if (navigator.userAgent.indexOf('PhantomJS') > -1) {
 
 export const state = {
   items: window.localStorage.getItem(STORAGE_KEY) != null ? JSON.parse(window.localStorage.getItem(STORAGE_KEY)) : [{"element": 0, "rarity": "A"}],
+  messageFlg: false,
 }
 
 export const mutations = {
@@ -30,5 +31,9 @@ export const mutations = {
 
   clearCompleted (state) {
     state.items = state.items.filter(item => !item.done)
+  },
+
+  toggleMessage (state) {
+    state.messageFlg = !state.messageFlg;
   }
 }

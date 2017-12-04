@@ -131,6 +131,27 @@ footer {
   padding: 0 20px;
   font-size: 10px;
 }
+
+.messageBlock {
+  position: fixed;
+  width: 80%;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5%;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 3px;
+  background: #ffbbbb;
+  transition: opacity .2s ease 0s;
+  opacity: 0;
+  z-index: -1;
+
+  &.current {
+    opacity: 1;
+    z-index: 1;
+  }
+}
 </style>
 <template>
   <section class="materialCalcApp">
@@ -183,6 +204,9 @@ footer {
           </ul>
         </div>
       </div>
+    </div>
+    <div class="messageBlock" :class="{current: messageFlg}">
+      <p>登録されませんでした。</p>
     </div>
     <div class="bulkBlock" v-show="isBulkRender">
       <p>Import/Exportを行います。<br>テキストエリア内は現在保存されているデータです。書き換えて更新ボタンを押下するとデータを書き換えます。</p>
@@ -247,6 +271,9 @@ export default {
         return {hoge: 'fuga'}
       });
     },
+    messageFlg () {
+      return this.$store.state.messageFlg;
+    },
     materialCalcs() {
       /**
       * return {materials:[{material_id:0, count:30},{material_id:1, count:30}...], gold: 100}
@@ -295,6 +322,17 @@ export default {
     addItem (e) {
       const formdata = e.target.elements
       console.log(parseInt(formdata.element.value),formdata.rarity.value)
+
+      if(formdata.element.value == 'none' || formdata.rarity.value == 'none') {
+        this.$store.commit('toggleMessage');
+        const self = this;
+        setTimeout(()=>{
+          self.$store.commit('toggleMessage');
+        }, 2000);
+
+        return false;
+      }
+
       this.$store.commit({
         type: 'addItem',
         element: parseInt(formdata.element.value),
