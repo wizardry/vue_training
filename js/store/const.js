@@ -1,3 +1,4 @@
+export const APP_VERSION = '1.05';
 
 export const elements = [
   {name: '火属性', id: 0, class: 'fire'},

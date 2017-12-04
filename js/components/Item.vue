@@ -46,7 +46,7 @@ dl,dt,dd {
   display: inline-block;
 }
 .inner {
-  padding: 8px;
+  padding: 4px;
 }
 dt {
   &:after{

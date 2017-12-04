@@ -18,8 +18,13 @@ module.exports = {
       loader: 'babel-loader',
     },{
       test: /\.vue$/,
-      loader: 'vue-loader'
-    }]
+      loader: 'vue-loader',
+      options: {
+        transformToRequire: {
+          img: '',
+        }
+      }
+    }],
   },
   devServer: {
     port: 8080,

@@ -16,8 +16,16 @@ header {
   line-height: 45px;
   font-size: 18px;
   font-weight: bold;
-  box-shadow: 5px 5px 0 $theme_under;
   text-align: center;
+  position: relative;
+
+  img {
+    cursor: pointer;
+    position: absolute;
+    width: 18px;
+    right: 10px;
+    top: 15px;
+  }
 }
 
 .mainContent {
@@ -86,6 +94,30 @@ header {
   background: $theme_light;
   padding-bottom: 160px;
 }
+
+.bulkBlock{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  padding: 16px;
+  top: 0;
+  left: 0;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.6;
+
+  textarea {
+    margin: 8px 0;
+    width: 100%;
+    min-height:250px;
+  }
+  button {
+    display: block;
+    width: 100%;
+  }
+}
 footer {
   background: #343737;
   color: $theme_lighten;
@@ -105,6 +137,7 @@ footer {
     <!-- header -->
     <header>
       <p>SINoALICE 必要素材メモ帳</p>
+      <img src='./images/import.png' alt="import" @click="isBulkRender = true;">
     </header>
     <div class="appWrapper">
       <div class="mainContent">
@@ -151,6 +184,14 @@ footer {
         </div>
       </div>
     </div>
+    <div class="bulkBlock" v-show="isBulkRender">
+      <p>Import/Exportを行います。<br>テキストエリア内は現在保存されているデータです。書き換えて更新ボタンを押下するとデータを書き換えます。</p>
+      <p v-show="!isVersionCheck">コピーしたあとはこの画面をリロードしてください。</p>
+      <form @submit.prevent="bulk">
+        <textarea name="app_data">{{JSON.stringify(items)}}</textarea>
+        <button type="submit" v-show="isVersionCheck">更新</button>
+      </form>
+    </div>
     <footer>developper by wiz_rein</footer>
   </section>
 </template>
@@ -158,12 +199,15 @@ footer {
 <script>
 import { mapMutations } from 'vuex'
 import Item from './Item.vue'
-import {elements, rarities, materials, reqrueiedMaterials} from '../store/const.js'
+import {elements, rarities, materials, reqrueiedMaterials, APP_VERSION} from '../store/const.js'
 
 export default {
   components: { Item },
+  props:['isBulkRenderProps'],
   data () {
     return {
+      isBulkRender: false,
+      isVersionCheck: true,
       elements: elements,
       rarities: rarities,
       materials: materials,
@@ -178,6 +222,21 @@ export default {
         })
       }
     }
+  },
+  beforeMount() {
+    // バージョンが違った場合アラートを出す。バルクでデータを書き出す。
+
+    const STORAGE_KEY = 'APP_VERSION';
+    const var_val = window.localStorage.getItem(STORAGE_KEY);
+
+    if( var_val != undefined && var_val != APP_VERSION) {
+      alert('バージョンがふるく、データをリセットする必要があります。\n データをエクスポートしますので必要に応じてバックアップしてください。また、リロードするとインポート以外での復元ができなくなります。');
+      window.localStorage.removeItem('smc-items');
+      this.isBulkRender = true;
+      this.isVersionCheck = false;
+    }
+    window.localStorage.setItem(STORAGE_KEY, APP_VERSION);
+
   },
   computed: {
     items () {
@@ -244,6 +303,15 @@ export default {
 
       formdata.element.selectedIndex = 0;
       formdata.rarity.selectedIndex = 0;
+    },
+    bulk (e) {
+      console.log(0)
+      this.isBulkRender = false;
+
+      const data = e.target.elements.app_data.value;
+      window.localStorage.setItem('smc-items', data);
+
+      location.reload();
     },
     ...mapMutations([
       'editItem',
