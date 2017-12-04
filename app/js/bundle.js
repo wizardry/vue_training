@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3e7e70905f3a9996b9d1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b342e030a73afe517686"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -12643,7 +12643,7 @@ exports = module.exports = __webpack_require__(131)(true);
 
 
 // module
-exports.push([module.i, "\nheader[data-v-6a6fa670] {\n  background: #333;\n  color: #776f6f;\n  border-bottom: 1px solid #660034;\n  height: 45px;\n  line-height: 45px;\n  font-size: 18px;\n  font-weight: bold;\n  box-shadow: 5px 5px 0 #ccc;\n  text-align: center;\n}\n.mainContent[data-v-6a6fa670] {\n  background: #bebebe;\n}\n.mainContent .requiredMaterial[data-v-6a6fa670] {\n    background: #000;\n    color: #bebebe;\n    overflow-y: auto;\n    max-height: 120px;\n}\n.mainContent .requiredMaterial li[data-v-6a6fa670] {\n      border-bottom: 1px dashed #eee;\n}\n.mainContent .requiredMaterial dl[data-v-6a6fa670] {\n      display: block;\n      position: relative;\n      padding: 5px 10px;\n      overflow: hidden;\n}\n.mainContent .requiredMaterial dt[data-v-6a6fa670] {\n      float: left;\n}\n.mainContent .requiredMaterial dd[data-v-6a6fa670] {\n      float: right;\n}\n.mainContent form[data-v-6a6fa670] {\n    padding: 5px;\n    font-size: 14px;\n    background: #FFF;\n}\n.mainContent form dl[data-v-6a6fa670] {\n      overflow: hidden;\n}\n.mainContent form dt[data-v-6a6fa670], .mainContent form dd[data-v-6a6fa670] {\n      display: inline-block;\n      vertical-align: middle;\n}\n.mainContent form dd[data-v-6a6fa670] {\n      margin-right: 12px;\n}\n.mainContent form button[data-v-6a6fa670] {\n      margin-top: 12px;\n      padding: 8px;\n      border-color: #949493;\n      background: #eee;\n      display: block;\n      box-sizing: border-box;\n      width: 100%;\n      text-align: center;\n}\n.mainContent form.addForm[data-v-6a6fa670] {\n      position: fixed;\n      bottom: 30px;\n      width: 100%;\n      box-sizing: border-box;\n      border-top: 1px solid #660034;\n}\n.limitBreakList[data-v-6a6fa670] {\n  background: #eee;\n  padding-bottom: 160px;\n}\nfooter[data-v-6a6fa670] {\n  background: #343737;\n  color: #fdfdfd;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  height: 30px;\n  line-height: 30px;\n  text-align: right;\n  box-sizing: border-box;\n  padding: 0 20px;\n  font-size: 10px;\n}\n", "", {"version":3,"sources":["/Users/y-takase/Documents/mysys/git/vue_training/js/components/App.vue"],"names":[],"mappings":";AAAA;EACE,iBAAiB;EACjB,eAAe;EACf,iCAAiC;EACjC,aAAa;EACb,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;EAClB,2BAA2B;EAC3B,mBAAmB;CAAE;AAEvB;EACE,oBAAoB;CAAE;AACtB;IACE,iBAAiB;IACjB,eAAe;IACf,iBAAiB;IACjB,kBAAkB;CAAE;AACpB;MACE,+BAA+B;CAAE;AACnC;MACE,eAAe;MACf,mBAAmB;MACnB,kBAAkB;MAClB,iBAAiB;CAAE;AACrB;MACE,YAAY;CAAE;AAChB;MACE,aAAa;CAAE;AACnB;IACE,aAAa;IACb,gBAAgB;IAChB,iBAAiB;CAAE;AACnB;MACE,iBAAiB;CAAE;AACrB;MACE,sBAAsB;MACtB,uBAAuB;CAAE;AAC3B;MACE,mBAAmB;CAAE;AACvB;MACE,iBAAiB;MACjB,aAAa;MACb,sBAAsB;MACtB,iBAAiB;MACjB,eAAe;MACf,uBAAuB;MACvB,YAAY;MACZ,mBAAmB;CAAE;AACvB;MACE,gBAAgB;MAChB,aAAa;MACb,YAAY;MACZ,uBAAuB;MACvB,8BAA8B;CAAE;AAEtC;EACE,iBAAiB;EACjB,sBAAsB;CAAE;AAE1B;EACE,oBAAoB;EACpB,eAAe;EACf,gBAAgB;EAChB,UAAU;EACV,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,kBAAkB;EAClB,uBAAuB;EACvB,gBAAgB;EAChB,gBAAgB;CAAE","file":"App.vue","sourcesContent":["header {\n  background: #333;\n  color: #776f6f;\n  border-bottom: 1px solid #660034;\n  height: 45px;\n  line-height: 45px;\n  font-size: 18px;\n  font-weight: bold;\n  box-shadow: 5px 5px 0 #ccc;\n  text-align: center; }\n\n.mainContent {\n  background: #bebebe; }\n  .mainContent .requiredMaterial {\n    background: #000;\n    color: #bebebe;\n    overflow-y: auto;\n    max-height: 120px; }\n    .mainContent .requiredMaterial li {\n      border-bottom: 1px dashed #eee; }\n    .mainContent .requiredMaterial dl {\n      display: block;\n      position: relative;\n      padding: 5px 10px;\n      overflow: hidden; }\n    .mainContent .requiredMaterial dt {\n      float: left; }\n    .mainContent .requiredMaterial dd {\n      float: right; }\n  .mainContent form {\n    padding: 5px;\n    font-size: 14px;\n    background: #FFF; }\n    .mainContent form dl {\n      overflow: hidden; }\n    .mainContent form dt, .mainContent form dd {\n      display: inline-block;\n      vertical-align: middle; }\n    .mainContent form dd {\n      margin-right: 12px; }\n    .mainContent form button {\n      margin-top: 12px;\n      padding: 8px;\n      border-color: #949493;\n      background: #eee;\n      display: block;\n      box-sizing: border-box;\n      width: 100%;\n      text-align: center; }\n    .mainContent form.addForm {\n      position: fixed;\n      bottom: 30px;\n      width: 100%;\n      box-sizing: border-box;\n      border-top: 1px solid #660034; }\n\n.limitBreakList {\n  background: #eee;\n  padding-bottom: 160px; }\n\nfooter {\n  background: #343737;\n  color: #fdfdfd;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  height: 30px;\n  line-height: 30px;\n  text-align: right;\n  box-sizing: border-box;\n  padding: 0 20px;\n  font-size: 10px; }\n"],"sourceRoot":""}]);
+exports.push([module.i, "\nheader[data-v-6a6fa670] {\n  background: #333;\n  color: #776f6f;\n  border-bottom: 1px solid #660034;\n  height: 45px;\n  line-height: 45px;\n  font-size: 18px;\n  font-weight: bold;\n  text-align: center;\n  position: relative;\n}\nheader img[data-v-6a6fa670] {\n    cursor: pointer;\n    position: absolute;\n    width: 18px;\n    right: 10px;\n    top: 15px;\n}\n.mainContent[data-v-6a6fa670] {\n  background: #bebebe;\n}\n.mainContent .requiredMaterial[data-v-6a6fa670] {\n    background: #000;\n    color: #bebebe;\n    overflow-y: auto;\n    max-height: 120px;\n}\n.mainContent .requiredMaterial li[data-v-6a6fa670] {\n      border-bottom: 1px dashed #eee;\n}\n.mainContent .requiredMaterial dl[data-v-6a6fa670] {\n      display: block;\n      position: relative;\n      padding: 5px 10px;\n      overflow: hidden;\n}\n.mainContent .requiredMaterial dt[data-v-6a6fa670] {\n      float: left;\n}\n.mainContent .requiredMaterial dd[data-v-6a6fa670] {\n      float: right;\n}\n.mainContent form[data-v-6a6fa670] {\n    padding: 5px;\n    font-size: 14px;\n    background: #FFF;\n}\n.mainContent form dl[data-v-6a6fa670] {\n      overflow: hidden;\n}\n.mainContent form dt[data-v-6a6fa670], .mainContent form dd[data-v-6a6fa670] {\n      display: inline-block;\n      vertical-align: middle;\n}\n.mainContent form dd[data-v-6a6fa670] {\n      margin-right: 12px;\n}\n.mainContent form button[data-v-6a6fa670] {\n      margin-top: 12px;\n      padding: 8px;\n      border-color: #949493;\n      background: #eee;\n      display: block;\n      box-sizing: border-box;\n      width: 100%;\n      text-align: center;\n}\n.mainContent form.addForm[data-v-6a6fa670] {\n      position: fixed;\n      bottom: 30px;\n      width: 100%;\n      box-sizing: border-box;\n      border-top: 1px solid #660034;\n}\n.limitBreakList[data-v-6a6fa670] {\n  background: #eee;\n  padding-bottom: 160px;\n}\n.bulkBlock[data-v-6a6fa670] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  box-sizing: border-box;\n  padding: 16px;\n  top: 0;\n  left: 0;\n  color: #fff;\n  font-size: 10px;\n  line-height: 1.6;\n}\n.bulkBlock textarea[data-v-6a6fa670] {\n    margin: 8px 0;\n    width: 100%;\n    min-height: 250px;\n}\n.bulkBlock button[data-v-6a6fa670] {\n    display: block;\n    width: 100%;\n}\nfooter[data-v-6a6fa670] {\n  background: #343737;\n  color: #fdfdfd;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  height: 30px;\n  line-height: 30px;\n  text-align: right;\n  box-sizing: border-box;\n  padding: 0 20px;\n  font-size: 10px;\n}\n", "", {"version":3,"sources":["/Users/y-takase/Documents/mysys/git/vue_training/js/components/App.vue"],"names":[],"mappings":";AAAA;EACE,iBAAiB;EACjB,eAAe;EACf,iCAAiC;EACjC,aAAa;EACb,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;EACnB,mBAAmB;CAAE;AACrB;IACE,gBAAgB;IAChB,mBAAmB;IACnB,YAAY;IACZ,YAAY;IACZ,UAAU;CAAE;AAEhB;EACE,oBAAoB;CAAE;AACtB;IACE,iBAAiB;IACjB,eAAe;IACf,iBAAiB;IACjB,kBAAkB;CAAE;AACpB;MACE,+BAA+B;CAAE;AACnC;MACE,eAAe;MACf,mBAAmB;MACnB,kBAAkB;MAClB,iBAAiB;CAAE;AACrB;MACE,YAAY;CAAE;AAChB;MACE,aAAa;CAAE;AACnB;IACE,aAAa;IACb,gBAAgB;IAChB,iBAAiB;CAAE;AACnB;MACE,iBAAiB;CAAE;AACrB;MACE,sBAAsB;MACtB,uBAAuB;CAAE;AAC3B;MACE,mBAAmB;CAAE;AACvB;MACE,iBAAiB;MACjB,aAAa;MACb,sBAAsB;MACtB,iBAAiB;MACjB,eAAe;MACf,uBAAuB;MACvB,YAAY;MACZ,mBAAmB;CAAE;AACvB;MACE,gBAAgB;MAChB,aAAa;MACb,YAAY;MACZ,uBAAuB;MACvB,8BAA8B;CAAE;AAEtC;EACE,iBAAiB;EACjB,sBAAsB;CAAE;AAE1B;EACE,gBAAgB;EAChB,YAAY;EACZ,aAAa;EACb,+BAA+B;EAC/B,uBAAuB;EACvB,cAAc;EACd,OAAO;EACP,QAAQ;EACR,YAAY;EACZ,gBAAgB;EAChB,iBAAiB;CAAE;AACnB;IACE,cAAc;IACd,YAAY;IACZ,kBAAkB;CAAE;AACtB;IACE,eAAe;IACf,YAAY;CAAE;AAElB;EACE,oBAAoB;EACpB,eAAe;EACf,gBAAgB;EAChB,UAAU;EACV,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,kBAAkB;EAClB,uBAAuB;EACvB,gBAAgB;EAChB,gBAAgB;CAAE","file":"App.vue","sourcesContent":["header {\n  background: #333;\n  color: #776f6f;\n  border-bottom: 1px solid #660034;\n  height: 45px;\n  line-height: 45px;\n  font-size: 18px;\n  font-weight: bold;\n  text-align: center;\n  position: relative; }\n  header img {\n    cursor: pointer;\n    position: absolute;\n    width: 18px;\n    right: 10px;\n    top: 15px; }\n\n.mainContent {\n  background: #bebebe; }\n  .mainContent .requiredMaterial {\n    background: #000;\n    color: #bebebe;\n    overflow-y: auto;\n    max-height: 120px; }\n    .mainContent .requiredMaterial li {\n      border-bottom: 1px dashed #eee; }\n    .mainContent .requiredMaterial dl {\n      display: block;\n      position: relative;\n      padding: 5px 10px;\n      overflow: hidden; }\n    .mainContent .requiredMaterial dt {\n      float: left; }\n    .mainContent .requiredMaterial dd {\n      float: right; }\n  .mainContent form {\n    padding: 5px;\n    font-size: 14px;\n    background: #FFF; }\n    .mainContent form dl {\n      overflow: hidden; }\n    .mainContent form dt, .mainContent form dd {\n      display: inline-block;\n      vertical-align: middle; }\n    .mainContent form dd {\n      margin-right: 12px; }\n    .mainContent form button {\n      margin-top: 12px;\n      padding: 8px;\n      border-color: #949493;\n      background: #eee;\n      display: block;\n      box-sizing: border-box;\n      width: 100%;\n      text-align: center; }\n    .mainContent form.addForm {\n      position: fixed;\n      bottom: 30px;\n      width: 100%;\n      box-sizing: border-box;\n      border-top: 1px solid #660034; }\n\n.limitBreakList {\n  background: #eee;\n  padding-bottom: 160px; }\n\n.bulkBlock {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  box-sizing: border-box;\n  padding: 16px;\n  top: 0;\n  left: 0;\n  color: #fff;\n  font-size: 10px;\n  line-height: 1.6; }\n  .bulkBlock textarea {\n    margin: 8px 0;\n    width: 100%;\n    min-height: 250px; }\n  .bulkBlock button {\n    display: block;\n    width: 100%; }\n\nfooter {\n  background: #343737;\n  color: #fdfdfd;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  height: 30px;\n  line-height: 30px;\n  text-align: right;\n  box-sizing: border-box;\n  padding: 0 20px;\n  font-size: 10px; }\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -12657,7 +12657,7 @@ exports = module.exports = __webpack_require__(131)(true);
 
 
 // module
-exports.push([module.i, "\nform[data-v-328d7e58] {\n  padding: 5px;\n  font-size: 14px;\n  background: #FFF;\n}\nform dl[data-v-328d7e58] {\n    overflow: hidden;\n}\nform dt[data-v-328d7e58], form dd[data-v-328d7e58] {\n    display: inline-block;\n    vertical-align: middle;\n}\nform dd[data-v-328d7e58] {\n    margin-right: 12px;\n}\nform button[data-v-328d7e58] {\n    margin-top: 12px;\n    padding: 8px;\n    border-color: #949493;\n    background: #eee;\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    text-align: center;\n}\nli[data-v-328d7e58] {\n  border-bottom: 1px solid #fdfdfd;\n  font-size: 12px;\n  background: #bebebe;\n}\ndl[data-v-328d7e58], dt[data-v-328d7e58], dd[data-v-328d7e58] {\n  display: inline-block;\n}\n.inner[data-v-328d7e58] {\n  padding: 8px;\n}\ndt[data-v-328d7e58]:after {\n  content: ':';\n}\ndd[data-v-328d7e58] {\n  margin-right: 8px;\n  font-weight: bold;\n}\ndd.fire[data-v-328d7e58] {\n    color: #DF0101;\n}\ndd.wind[data-v-328d7e58] {\n    color: #393;\n}\ndd.water[data-v-328d7e58] {\n    color: #339;\n}\ndd.common[data-v-328d7e58] {\n    color: #fff;\n}\ndd[class^=rarity][data-v-328d7e58] {\n    width: 1.5em;\n}\ndd.rarityA[data-v-328d7e58] {\n    color: #DF0101;\n}\ndd.rarityS[data-v-328d7e58] {\n    color: #585858;\n}\ndd.raritySS[data-v-328d7e58] {\n    color: #F3F781;\n}\n.editButton[data-v-328d7e58], .deleteButton[data-v-328d7e58] {\n  margin-right: 4px;\n  padding: 4px;\n  text-align: center;\n  width: 40px;\n}\n", "", {"version":3,"sources":["/Users/y-takase/Documents/mysys/git/vue_training/js/components/Item.vue"],"names":[],"mappings":";AAAA;EACE,aAAa;EACb,gBAAgB;EAChB,iBAAiB;CAAE;AACnB;IACE,iBAAiB;CAAE;AACrB;IACE,sBAAsB;IACtB,uBAAuB;CAAE;AAC3B;IACE,mBAAmB;CAAE;AACvB;IACE,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,iBAAiB;IACjB,eAAe;IACf,uBAAuB;IACvB,YAAY;IACZ,mBAAmB;CAAE;AAEzB;EACE,iCAAiC;EACjC,gBAAgB;EAChB,oBAAoB;CAAE;AAExB;EACE,sBAAsB;CAAE;AAE1B;EACE,aAAa;CAAE;AAEjB;EACE,aAAa;CAAE;AAEjB;EACE,kBAAkB;EAClB,kBAAkB;CAAE;AACpB;IACE,eAAe;CAAE;AACnB;IACE,YAAY;CAAE;AAChB;IACE,YAAY;CAAE;AAChB;IACE,YAAY;CAAE;AAChB;IACE,aAAa;CAAE;AACjB;IACE,eAAe;CAAE;AACnB;IACE,eAAe;CAAE;AACnB;IACE,eAAe;CAAE;AAErB;EACE,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,YAAY;CAAE","file":"Item.vue","sourcesContent":["form {\n  padding: 5px;\n  font-size: 14px;\n  background: #FFF; }\n  form dl {\n    overflow: hidden; }\n  form dt, form dd {\n    display: inline-block;\n    vertical-align: middle; }\n  form dd {\n    margin-right: 12px; }\n  form button {\n    margin-top: 12px;\n    padding: 8px;\n    border-color: #949493;\n    background: #eee;\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    text-align: center; }\n\nli {\n  border-bottom: 1px solid #fdfdfd;\n  font-size: 12px;\n  background: #bebebe; }\n\ndl, dt, dd {\n  display: inline-block; }\n\n.inner {\n  padding: 8px; }\n\ndt:after {\n  content: ':'; }\n\ndd {\n  margin-right: 8px;\n  font-weight: bold; }\n  dd.fire {\n    color: #DF0101; }\n  dd.wind {\n    color: #393; }\n  dd.water {\n    color: #339; }\n  dd.common {\n    color: #fff; }\n  dd[class^=rarity] {\n    width: 1.5em; }\n  dd.rarityA {\n    color: #DF0101; }\n  dd.rarityS {\n    color: #585858; }\n  dd.raritySS {\n    color: #F3F781; }\n\n.editButton, .deleteButton {\n  margin-right: 4px;\n  padding: 4px;\n  text-align: center;\n  width: 40px; }\n"],"sourceRoot":""}]);
+exports.push([module.i, "\nform[data-v-328d7e58] {\n  padding: 5px;\n  font-size: 14px;\n  background: #FFF;\n}\nform dl[data-v-328d7e58] {\n    overflow: hidden;\n}\nform dt[data-v-328d7e58], form dd[data-v-328d7e58] {\n    display: inline-block;\n    vertical-align: middle;\n}\nform dd[data-v-328d7e58] {\n    margin-right: 12px;\n}\nform button[data-v-328d7e58] {\n    margin-top: 12px;\n    padding: 8px;\n    border-color: #949493;\n    background: #eee;\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    text-align: center;\n}\nli[data-v-328d7e58] {\n  border-bottom: 1px solid #fdfdfd;\n  font-size: 12px;\n  background: #bebebe;\n}\ndl[data-v-328d7e58], dt[data-v-328d7e58], dd[data-v-328d7e58] {\n  display: inline-block;\n}\n.inner[data-v-328d7e58] {\n  padding: 4px;\n}\ndt[data-v-328d7e58]:after {\n  content: ':';\n}\ndd[data-v-328d7e58] {\n  margin-right: 8px;\n  font-weight: bold;\n}\ndd.fire[data-v-328d7e58] {\n    color: #DF0101;\n}\ndd.wind[data-v-328d7e58] {\n    color: #393;\n}\ndd.water[data-v-328d7e58] {\n    color: #339;\n}\ndd.common[data-v-328d7e58] {\n    color: #fff;\n}\ndd[class^=rarity][data-v-328d7e58] {\n    width: 1.5em;\n}\ndd.rarityA[data-v-328d7e58] {\n    color: #DF0101;\n}\ndd.rarityS[data-v-328d7e58] {\n    color: #585858;\n}\ndd.raritySS[data-v-328d7e58] {\n    color: #F3F781;\n}\n.editButton[data-v-328d7e58], .deleteButton[data-v-328d7e58] {\n  margin-right: 4px;\n  padding: 4px;\n  text-align: center;\n  width: 40px;\n}\n", "", {"version":3,"sources":["/Users/y-takase/Documents/mysys/git/vue_training/js/components/Item.vue"],"names":[],"mappings":";AAAA;EACE,aAAa;EACb,gBAAgB;EAChB,iBAAiB;CAAE;AACnB;IACE,iBAAiB;CAAE;AACrB;IACE,sBAAsB;IACtB,uBAAuB;CAAE;AAC3B;IACE,mBAAmB;CAAE;AACvB;IACE,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,iBAAiB;IACjB,eAAe;IACf,uBAAuB;IACvB,YAAY;IACZ,mBAAmB;CAAE;AAEzB;EACE,iCAAiC;EACjC,gBAAgB;EAChB,oBAAoB;CAAE;AAExB;EACE,sBAAsB;CAAE;AAE1B;EACE,aAAa;CAAE;AAEjB;EACE,aAAa;CAAE;AAEjB;EACE,kBAAkB;EAClB,kBAAkB;CAAE;AACpB;IACE,eAAe;CAAE;AACnB;IACE,YAAY;CAAE;AAChB;IACE,YAAY;CAAE;AAChB;IACE,YAAY;CAAE;AAChB;IACE,aAAa;CAAE;AACjB;IACE,eAAe;CAAE;AACnB;IACE,eAAe;CAAE;AACnB;IACE,eAAe;CAAE;AAErB;EACE,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,YAAY;CAAE","file":"Item.vue","sourcesContent":["form {\n  padding: 5px;\n  font-size: 14px;\n  background: #FFF; }\n  form dl {\n    overflow: hidden; }\n  form dt, form dd {\n    display: inline-block;\n    vertical-align: middle; }\n  form dd {\n    margin-right: 12px; }\n  form button {\n    margin-top: 12px;\n    padding: 8px;\n    border-color: #949493;\n    background: #eee;\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    text-align: center; }\n\nli {\n  border-bottom: 1px solid #fdfdfd;\n  font-size: 12px;\n  background: #bebebe; }\n\ndl, dt, dd {\n  display: inline-block; }\n\n.inner {\n  padding: 4px; }\n\ndt:after {\n  content: ':'; }\n\ndd {\n  margin-right: 8px;\n  font-weight: bold; }\n  dd.fire {\n    color: #DF0101; }\n  dd.wind {\n    color: #393; }\n  dd.water {\n    color: #339; }\n  dd.common {\n    color: #fff; }\n  dd[class^=rarity] {\n    width: 1.5em; }\n  dd.rarityA {\n    color: #DF0101; }\n  dd.rarityS {\n    color: #585858; }\n  dd.raritySS {\n    color: #F3F781; }\n\n.editButton, .deleteButton {\n  margin-right: 4px;\n  padding: 4px;\n  text-align: center;\n  width: 40px; }\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -14069,6 +14069,8 @@ module.exports = function normalizeComponent (
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var APP_VERSION = exports.APP_VERSION = '1.05';
+
 var elements = exports.elements = [{ name: '火属性', id: 0, class: 'fire' }, { name: '水属性', id: 1, class: 'water' }, { name: '風属性', id: 2, class: 'wind' }, { name: '共通', id: 99, class: 'common' }];
 
 var rarities = exports.rarities = ['A', 'S', 'SS', 'L'];
@@ -14120,7 +14122,7 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-new _vue2.default({
+var SinApp = new _vue2.default({
   store: _store2.default, // inject store to all children
   el: '#vueApp',
   render: function render(h) {
@@ -19933,7 +19935,7 @@ function assert(condition, msg) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_App_vue__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6a6fa670_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_App_vue__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6a6fa670_hasScoped_true_transformToRequire_img_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_App_vue__ = __webpack_require__(352);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -19954,7 +19956,7 @@ var __vue_scopeId__ = "data-v-6a6fa670"
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_App_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6a6fa670_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6a6fa670_hasScoped_true_transformToRequire_img_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -20209,6 +20211,47 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var _vuex = __webpack_require__(93);
 
@@ -20222,8 +20265,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
   components: { Item: _Item2.default },
+  props: ['isBulkRenderProps'],
   data: function data() {
     return {
+      isBulkRender: false,
+      isVersionCheck: true,
       elements: _const.elements,
       rarities: _const.rarities,
       materials: _const.materials,
@@ -20243,6 +20289,21 @@ exports.default = {
       }
     }
   },
+  beforeMount: function beforeMount() {
+    // バージョンが違った場合アラートを出す。バルクでデータを書き出す。
+
+    var STORAGE_KEY = 'APP_VERSION';
+    var var_val = window.localStorage.getItem(STORAGE_KEY);
+
+    if (var_val != undefined && var_val != _const.APP_VERSION) {
+      alert('バージョンがふるく、データをリセットする必要があります。\n データをエクスポートしますので必要に応じてバックアップしてください。また、リロードするとインポート以外での復元ができなくなります。');
+      window.localStorage.removeItem('smc-items');
+      this.isBulkRender = true;
+      this.isVersionCheck = false;
+    }
+    window.localStorage.setItem(STORAGE_KEY, _const.APP_VERSION);
+  },
+
   computed: {
     items: function items() {
       return this.$store.state.items;
@@ -20317,6 +20378,15 @@ exports.default = {
 
       formdata.element.selectedIndex = 0;
       formdata.rarity.selectedIndex = 0;
+    },
+    bulk: function bulk(e) {
+      console.log(0);
+      this.isBulkRender = false;
+
+      var data = e.target.elements.app_data.value;
+      window.localStorage.setItem('smc-items', data);
+
+      location.reload();
     }
   }, (0, _vuex.mapMutations)(['editItem', 'deleteItem'])),
   filters: {
@@ -20367,7 +20437,7 @@ exports.default = {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Item_vue__ = __webpack_require__(350);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Item_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_328d7e58_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Item_vue__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_328d7e58_hasScoped_true_transformToRequire_img_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Item_vue__ = __webpack_require__(351);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -20388,7 +20458,7 @@ var __vue_scopeId__ = "data-v-328d7e58"
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Item_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_328d7e58_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Item_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_328d7e58_hasScoped_true_transformToRequire_img_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Item_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -20873,7 +20943,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "materialCalcApp" }, [
-    _vm._m(0, false, false),
+    _c("header", [
+      _c("p", [_vm._v("SINoALICE 必要素材メモ帳")]),
+      _vm._v(" "),
+      _c("img", {
+        attrs: { src: "./images/import.png", alt: "import" },
+        on: {
+          click: function($event) {
+            _vm.isBulkRender = true
+          }
+        }
+      })
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "appWrapper" }, [
       _c("div", { staticClass: "mainContent" }, [
@@ -20971,6 +21052,72 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isBulkRender,
+            expression: "isBulkRender"
+          }
+        ],
+        staticClass: "bulkBlock"
+      },
+      [
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.isVersionCheck,
+                expression: "!isVersionCheck"
+              }
+            ]
+          },
+          [_vm._v("コピーしたあとはこの画面をリロードしてください。")]
+        ),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                _vm.bulk($event)
+              }
+            }
+          },
+          [
+            _c("textarea", { attrs: { name: "app_data" } }, [
+              _vm._v(_vm._s(JSON.stringify(_vm.items)))
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.isVersionCheck,
+                    expression: "isVersionCheck"
+                  }
+                ],
+                attrs: { type: "submit" }
+              },
+              [_vm._v("更新")]
+            )
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
     _c("footer", [_vm._v("developper by wiz_rein")])
   ])
 }
@@ -20979,7 +21126,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", [_c("p", [_vm._v("SINoALICE 必要素材メモ帳")])])
+    return _c("p", [
+      _vm._v("Import/Exportを行います。"),
+      _c("br"),
+      _vm._v(
+        "テキストエリア内は現在保存されているデータです。書き換えて更新ボタンを押下するとデータを書き換えます。"
+      )
+    ])
   }
 ]
 render._withStripped = true
